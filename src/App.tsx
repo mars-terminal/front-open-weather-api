@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Flex, Container } from '@chakra-ui/react';
+import { useState } from 'react';
+import Content from './Content';
+import Weather from './components/Weather';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [city, setCity] = useState("")
+
+    return ( 
+        <Container maxW="container.xl" p={20}>
+            <Flex  h="80vh" py={5}>
+                <Content city={city} setCity={setCity} />
+                <Weather city={city} />
+            </Flex>
+        </Container> 
+    );
 }
 
 export default App;
